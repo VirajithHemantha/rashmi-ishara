@@ -32,7 +32,7 @@ const INVITATION = {
 } as const;
 
 const backgroundMusic = "/Ed%20Sheeran%20-%20Perfect%20(Karaoke).mp3";
-const googleScriptUrl = "https://script.google.com/macros/s/AKfycbxDOhcFATAhlNdHdH9erR-C6TVL5U2qApEObrQCJsS9geLFkzTbNObUwqXGQz0X9e2O/exec";
+const googleScriptUrl = "https://script.google.com/macros/s/AKfycbwhCxUf1B9c3KYLBoxYU-w2ggpi7y3_S1JH9Up8foWKLaZNaeMq3lMgWyjzQxwXqrrZ/exec";
 
 const publicImagePath = (fileName: string) => `/images/${fileName.replaceAll(" ", "%20")}`;
 
@@ -223,13 +223,13 @@ export default function WeddingInvitation() {
     }
 
     const response = await fetch(googleScriptUrl, {
-      method: "POST",
-      body: new URLSearchParams(payload),
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: JSON.stringify(payload)
     });
-
-    if (!response.ok) {
-      throw new Error("Request failed");
-    }
   };
 
   const handleRsvpSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -930,7 +930,11 @@ export default function WeddingInvitation() {
                             setRsvpForm((prev) => ({ ...prev, guests: "1" }));
                           }}
                           aria-pressed={rsvpForm.guests !== "0"}
-                          className="w-full bg-[#f3f3f3] hover:bg-slate-200 text-slate-700 py-5 md:py-6 rounded-xl font-cinzel text-[11px] md:text-sm tracking-wide transition-all shadow-sm flex items-center justify-center px-4 leading-relaxed active:scale-[0.98]"
+                          className={`w-full py-5 md:py-6 rounded-xl font-cinzel text-[11px] md:text-sm tracking-wide transition-all shadow-sm flex items-center justify-center px-4 leading-relaxed active:scale-[0.98] border-2 ${
+                            rsvpForm.guests !== "0"
+                              ? "bg-[#477654] text-white border-[#477654] hover:bg-[#2e5739]"
+                              : "bg-[#f3f3f3] text-slate-700 border-transparent hover:bg-slate-200"
+                          }`}
                         >
                           Yes, I'll be there!
                         </button>
@@ -942,7 +946,11 @@ export default function WeddingInvitation() {
                             setRsvpForm((prev) => ({ ...prev, guests: "0" }));
                           }}
                           aria-pressed={rsvpForm.guests === "0"}
-                          className="w-full bg-[#f3f3f3] hover:bg-slate-200 text-slate-700 py-5 md:py-6 rounded-xl font-cinzel text-[11px] md:text-sm tracking-wide transition-all shadow-sm flex items-center justify-center px-4 leading-relaxed active:scale-[0.98]"
+                          className={`w-full py-5 md:py-6 rounded-xl font-cinzel text-[11px] md:text-sm tracking-wide transition-all shadow-sm flex items-center justify-center px-4 leading-relaxed active:scale-[0.98] border-2 ${
+                            rsvpForm.guests === "0"
+                              ? "bg-[#477654] text-white border-[#477654] hover:bg-[#2e5739]"
+                              : "bg-[#f3f3f3] text-slate-700 border-transparent hover:bg-slate-200"
+                          }`}
                         >
                           Sadly I can't attend, but you're in my heart
                         </button>
