@@ -5,9 +5,9 @@ import { Sparkles, MapPin, Calendar, Clock, Send, ChevronDown } from "lucide-rea
 const INVITATION = {
   couple: {
     bride: "Rashmi",
-    groom: "Ishara",
+    groom: "Enaksha",
     brideFull: "Rashmi Senarathne",
-    groomFull: "Ishara Enaksha",
+    groomFull: "Enaksha",
   },
   date: {
     displayNumeric: "24 . 08 . 2026",
@@ -16,6 +16,7 @@ const INVITATION = {
   },
   time: {
     ceremony: "10:30 AM - 4:00 PM",
+    poruwa: "10:46 AM",
     reception: "10:30 AM - 4:00 PM",
   },
   venue: {
@@ -26,7 +27,7 @@ const INVITATION = {
   },
   rsvpContacts: [
     "Rashmi: ",
-    "Ishara: ",
+    "Enaksha: ",
     "Family: ",
   ],
 } as const;
@@ -639,8 +640,18 @@ export default function WeddingInvitation() {
                           <Clock className="w-4 h-4 text-[#72a981]" />
                         </div>
                         <div>
-                          <div className="text-[9px] uppercase tracking-[0.5em] font-bold text-[#477654]/40 font-cinzel">Time</div>
-                          <div className="text-sm md:text-base text-[#477654] font-cinzel tracking-wide font-bold">{INVITATION.time.ceremony}</div>
+                          <div className="text-[9px] uppercase tracking-[0.5em] font-bold text-[#477654]/40 font-cinzel">Poruwa Ceremony</div>
+                          <div className="text-sm md:text-base text-[#477654] font-cinzel tracking-wide font-bold">{INVITATION.time.poruwa}</div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-full border border-[#72a981]/20 flex items-center justify-center shrink-0">
+                          <Clock className="w-4 h-4 text-[#72a981]" />
+                        </div>
+                        <div>
+                          <div className="text-[9px] uppercase tracking-[0.5em] font-bold text-[#477654]/40 font-cinzel">Reception</div>
+                          <div className="text-sm md:text-base text-[#477654] font-cinzel tracking-wide font-bold">{INVITATION.time.reception}</div>
                         </div>
                       </div>
 
