@@ -7,7 +7,7 @@ const INVITATION = {
     bride: "Rashmi",
     groom: "Enaksha",
     brideFull: "Rashmi Senarathne",
-    groomFull: "Enaksha",
+    groomFull: "Ishara Enaksha",
   },
   date: {
     displayNumeric: "24 . 08 . 2026",
