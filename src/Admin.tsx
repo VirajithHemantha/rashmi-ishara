@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Copy, CheckCircle2 } from 'lucide-react';
 
-const PREFIXES = ['Mr.', 'Mrs.', 'Miss', 'Mr. & Mrs.', 'Family', 'Dear'];
+const PREFIXES = ['Mr.', 'Mrs.', 'Miss', 'Ms.', 'Mr. & Mrs.', 'Family', 'Dear'];
 
 export default function Admin() {
   const [prefix, setPrefix] = useState('Mr.');
